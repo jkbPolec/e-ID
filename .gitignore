@@ -1,0 +1,28 @@
+# .NET (backend)
+backend/bin/
+backend/obj/
+backend/*.user
+backend/*.suo
+
+# Angular (frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/cache/
+frontend/.env
+
+# JetBrains IDE (Rider / WebStorm)
+.idea/
+*.iml
+*.iws
+
+# Common IDE trash
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS & misc
+.DS_Store
+Thumbs.db
+*.log
