@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import {AppComponent} from './app.component';
-import {LoginComponent} from './features/login/login.component';
-import {LicenseComponent} from './features/license/license.component';
+import {LoginPageComponent} from './features/auth/pages/login-page/login-page.component';
+import {EmployeeIdPageComponent} from './features/employee/pages/employee-id-page/employee-id-page.component';
 
 export const routes: Routes = [
   {
@@ -10,11 +10,11 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginPageComponent,
   },
   {
-    path: 'license',
-    component: LicenseComponent,
+    path: 'id',
+    component: EmployeeIdPageComponent,
   }
 
 
