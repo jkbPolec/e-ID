@@ -1,1 +1,44 @@
-<p>employee-id-page works!</p>
+<div class="parent">
+    <header class="header">Header</header>
+    <main class="main">
+        <h4 class="id-title">Identyfikator Serwisanta Kas Rejestrujących Novitus</h4>
+        <div class="id-contatiner">
+            
+            <div class="employee-data">
+
+                <div class="employee-photo">
+                    <img class="employee-image" [src]="mockEmployee.photoUrl" alt="Employee Photo">
+                </div>
+                <div class="employee-details">
+                    <h5 class="employee-name">Imie i nazwisko
+                        serwisanta: {{ mockEmployee.firstname + ' ' + mockEmployee.surname }}</h5>
+                    <p class="employee-id">Nr plomby: {{ mockEmployee.sealId }}</p>
+                </div>
+            </div>
+            <div class="data-sap" style="background: #F89D1B">
+                <div>
+                    <p>Data ważności:</p>
+                    <p> {{ mockEmployee.expirationDate | date: 'dd.MM.yyyy' }}</p>
+                </div>
+                <div>
+                    <p>Dane SAP</p>
+                    <p> {{ mockEmployee.oldSap }}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="footer">Footer Content
+
+        <div class="lower-panel">
+            <div class="company-details">
+                    <span>
+                        Dane podmiotu prowadzącego serwis główny kas rejestrujących i wystawiającego identyfikator:
+                    </span>
+                <h2>COMP SA Warszawa, Oddział Nowy Sącz NOVITUS - Centrum Technologii Sprzedaży</h2>
+                <p>ul. Nawojowska 118, 33-300 Nowy Sącz</p>
+            </div>
+        </div>
+    </footer>
+</div>
