@@ -3,28 +3,33 @@
     <main class="main">
         <h4 class="id-title">Identyfikator Serwisanta Kas Rejestrujących Novitus</h4>
         <div class="id-contatiner">
-            
-            <div class="employee-data">
 
-                <div class="employee-photo">
-                    <img class="employee-image" [src]="mockEmployee.photoUrl" alt="Employee Photo">
+
+            <ng-container *ngIf="technician$ | async as technician">
+                <div class="employee-data">
+
+                    <div class="employee-photo">
+                        <img class="employee-image" src='https://www.w3schools.com/howto/img_avatar.png'
+                             alt="Employee Photo">
+                    </div>
+                    <div class="employee-details">
+                        <h5 class="employee-name">Imie i nazwisko
+                            serwisanta: {{ technician.ImieSerwisanta + ' ' + technician.NazwiskoSerwisanta }}</h5>
+                        <p class="employee-id">Nr plomby: {{ technician.NrPlomby }}</p>
+                    </div>
                 </div>
-                <div class="employee-details">
-                    <h5 class="employee-name">Imie i nazwisko
-                        serwisanta: {{ mockEmployee.firstname + ' ' + mockEmployee.surname }}</h5>
-                    <p class="employee-id">Nr plomby: {{ mockEmployee.sealId }}</p>
+                <div class="data-sap" style="background: #F89D1B">
+                    <div>
+                        <p>Data ważności:</p>
+                        <p> {{ technician.DataWaznosci }}</p>
+                    </div>
+                    <div>
+                        <p>Dane SAP</p>
+                        <p>44</p>
+                    </div>
                 </div>
-            </div>
-            <div class="data-sap" style="background: #F89D1B">
-                <div>
-                    <p>Data ważności:</p>
-                    <p> {{ mockEmployee.expirationDate | date: 'dd.MM.yyyy' }}</p>
-                </div>
-                <div>
-                    <p>Dane SAP</p>
-                    <p> {{ mockEmployee.oldSap }}</p>
-                </div>
-            </div>
+            </ng-container>
+
         </div>
 
 

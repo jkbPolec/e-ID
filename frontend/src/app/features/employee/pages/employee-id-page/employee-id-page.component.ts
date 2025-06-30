@@ -1,53 +1,28 @@
-import {Component, inject} from '@angular/core';
-import {DatePipe, NgOptimizedImage} from '@angular/common';
+import {Component, inject, OnInit} from '@angular/core';
+import {AsyncPipe, NgIf} from '@angular/common';
 import {AuthService} from '../../../../core/services/auth.service';
+import {Technicican} from '../../../../shared/models/technician.model';
+import {Observable} from 'rxjs';
 
 @Component({
+    standalone: true,
     selector: 'app-employee-id-page',
-    imports: [DatePipe],
+    imports: [AsyncPipe, NgIf],
     templateUrl: './employee-id-page.component.html',
     styleUrl: './employee-id-page.component.css'
 })
-export class EmployeeIdPageComponent {
+export class EmployeeIdPageComponent implements OnInit {
 
+    technician$!: Observable<Technicican | null>;
 
-    response: any[] = [];
-    authservice = inject(AuthService);
+    authService = inject(AuthService);
 
-    constructor() {
-        this.authservice.getEmployeeData().subscribe({
-            next: data => {
-                this.response = data;
-                console.log('Employee data fetched successfully:', this.response);
-            },
-            error: error => {
-                console.error('Error fetching employee data:', error);
-            }
-        });
+    ngOnInit(): void {
+        this.technician$ = this.authService.currentTechnician$;
     }
 
-    mockEmployee = new employee(1, 'Tomek', 'Testy', 'NOO/Ł11', new Date('2025-05-15'), 44, "https://www.w3schools.com/howto/img_avatar.png");
-
-}
-
-class employee {
-    id: number;
-    firstname: string;
-    surname: string;
-    sealId: string;
-    expirationDate: Date;
-    oldSap: number;
-    photoUrl: string;
-
-
-    constructor(id: number, firstname: string, surname: string, sealId: string, expirationDate: Date, oldSap: number, photoUrl: string) {
-        this.id = id;
-        this.firstname = firstname;
-        this.surname = surname;
-        this.sealId = sealId;
-        this.expirationDate = expirationDate;
-        this.oldSap = oldSap;
-        this.photoUrl = photoUrl;
+    logout(): void {
+        this.authService.logout();
     }
 
 }
