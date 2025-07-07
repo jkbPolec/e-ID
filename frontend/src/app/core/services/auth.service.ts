@@ -11,8 +11,8 @@ import {Router} from '@angular/router';
 export class AuthService {
 
     private apiUrl = "https://webapi.novitus.pl:8443/DownloadInternalAPIServlet";
-    public currentTechniciainSubject = new BehaviorSubject<Technicican | null>(null);
-    public currentTechnician$ = this.currentTechniciainSubject.asObservable();
+    public currentTechnicianSubject = new BehaviorSubject<Technicican | null>(null);
+    public currentTechnician$ = this.currentTechnicianSubject.asObservable();
     router = inject(Router);
 
     constructor(private http: HttpClient) {
@@ -27,7 +27,7 @@ export class AuthService {
                 const technician = response.listaSerwisantow.find(t => t.PESEL === pesel);
 
                 if (technician) {
-                    this.currentTechniciainSubject.next(technician);
+                    this.currentTechnicianSubject.next(technician);
                     return technician;
                 } else {
                     throw new Error('Technician not found');
@@ -39,7 +39,7 @@ export class AuthService {
     }
 
     logout() {
-        this.currentTechniciainSubject.next(null);
+        this.currentTechnicianSubject.next(null);
         this.router.navigate(['/login']);
     }
 
