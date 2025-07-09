@@ -1,0 +1,65 @@
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container > h2 {
+    align-self: center;
+    margin: 10vh 0 3vh 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-button {
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background-color: #F89D1B;
+    color: white;
+    font-weight: bold;
+    margin: 15px 25px;
+    cursor: pointer;
+}
+
+input {
+    height: 50px;
+    font-size: 16px;
+    border: 1px;
+    border-radius: 25px;
+    background-color: #EFEFEF;
+    margin: 15px 25px;
+    padding: 0 20px;
+
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 22px;
+    padding-left: 55px;
+}
+
+#klucz {
+    background-image: url("https://raw.githubusercontent.com/tailwindlabs/heroicons/master/optimized/24/solid/key.svg");
+}
+
+#numerSap {
+    background-image: url("https://cdn.simpleicons.org/sap/0faaff");
+}
+
+#pesel {
+    background-image: url("https://raw.githubusercontent.com/tailwindlabs/heroicons/master/optimized/24/solid/user.svg");
+}
+
+input:focus {
+    border: 1px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #A9A9A9;
+}

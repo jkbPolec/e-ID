@@ -1,30 +1,29 @@
-<div class="login-container">
-    <h2>Logowanie Serwisanta</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-field">
-            <label for="klucz">Klucz API</label>
-            <input id="klucz" type="text" formControlName="klucz">
-            <p>TVJRJPXSPBB25DWHHGVN604UVAQ0ORMXWZSZ3SCMX3KB05L14MMWLGRAVSZITOWK</p>
-        </div>
-        <div class="form-field">
-            <label for="numerSap">Numer SAP</label>
-            <input id="numerSap" type="text" formControlName="numerSap">
-            <p>44</p>
-        </div>
-        <div class="form-field">
-            <label for="pesel">PESEL</label>
-            <input id="pesel" type="text" formControlName="pesel">
-            <p>33333333333</p>
-        </div>
+<app-plain-card>
+    <div class="login-container">
+        <h2>Logowanie Serwisanta</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-field">
+                <input id="klucz" type="text" formControlName="klucz" placeholder="Auth Key">
+            </div>
+            <div class="form-field">
+                <input id="numerSap" type="text" formControlName="numerSap" placeholder="Sap Number">
+            </div>
+            <div class="form-field">
+                <input id="pesel" type="text" formControlName="pesel" placeholder="Pesel">
+            </div>
 
-        <!-- Przycisk z obsługą stanu ładowania -->
-        <button type="submit" [disabled]="loginForm.invalid || isLoading">
-            {{ isLoading ? 'Logowanie...' : 'Zaloguj' }}
-        </button>
 
-        <!-- Komunikat o błędzie -->
-        <div *ngIf="errorMessage" class="error-message">
-            {{ errorMessage }}
-        </div>
-    </form>
-</div>
+            <div class="form-field">
+                <button class="login-button" type="submit" [disabled]="loginForm.invalid || isLoading">
+                    {{ isLoading ? 'Logowanie...' : 'LOG IN' }}
+                </button>
+            </div>
+
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
+        </form>
+    </div>
+
+    <!--<p>TVJRJPXSPBB25DWHHGVN604UVAQ0ORMXWZSZ3SCMX3KB05L14MMWLGRAVSZITOWK <br> 44 <br> 33333333333</p> -->
+</app-plain-card>

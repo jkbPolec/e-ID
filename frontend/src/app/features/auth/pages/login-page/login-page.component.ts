@@ -3,12 +3,13 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {Router} from '@angular/router';
 import {AuthService} from '../../../../core/services/auth.service';
 import {CommonModule} from '@angular/common';
+import {PlainCardComponent} from '../../../../shared/components/plain-card/plain-card.component';
 
 @Component({
     selector: 'app-login-page',
     templateUrl: './login-page.component.html',
     imports: [
-        ReactiveFormsModule, CommonModule
+        ReactiveFormsModule, CommonModule, PlainCardComponent
     ],
     styleUrls: ['./login-page.component.css']
 })

@@ -3,11 +3,12 @@ import {AsyncPipe, NgIf} from '@angular/common';
 import {AuthService} from '../../../../core/services/auth.service';
 import {Technicican} from '../../../../shared/models/technician.model';
 import {Observable} from 'rxjs';
+import {PlainCardComponent} from '../../../../shared/components/plain-card/plain-card.component';
 
 @Component({
     standalone: true,
     selector: 'app-employee-id-page',
-    imports: [AsyncPipe, NgIf],
+    imports: [AsyncPipe, NgIf, PlainCardComponent],
     templateUrl: './employee-id-page.component.html',
     styleUrl: './employee-id-page.component.css'
 })
